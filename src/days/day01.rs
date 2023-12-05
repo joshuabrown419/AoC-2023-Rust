@@ -3,7 +3,7 @@ use std::{fs::read_to_string};
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const digits : [&str; 10] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const DIGITS : [&str; 10] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
 pub fn solve() -> SolutionPair {
     let input = read_to_string("input/day1.txt").expect("");
@@ -41,14 +41,14 @@ pub fn solve() -> SolutionPair {
                 break;
             }
 
-            if i > 1 && digits.contains(&String::from_iter(&chars[i-2..i+1]).as_str()){
-                f2 = digits.iter().position(|&r| r == String::from_iter(&chars[i-2..i+1]).as_str()).unwrap();
+            if i > 1 && DIGITS.contains(&String::from_iter(&chars[i-2..i+1]).as_str()){
+                f2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[i-2..i+1]).as_str()).unwrap();
                 break;
-            } else if i > 2 && digits.contains(&String::from_iter(&chars[i-3..i+1]).as_str()) {
-                f2 = digits.iter().position(|&r| r == String::from_iter(&chars[i-3..i+1]).as_str()).unwrap();
+            } else if i > 2 && DIGITS.contains(&String::from_iter(&chars[i-3..i+1]).as_str()) {
+                f2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[i-3..i+1]).as_str()).unwrap();
                 break;
-            } else if i > 3 && digits.contains(&String::from_iter(&chars[i-4..i+1]).as_str()) {
-                f2 = digits.iter().position(|&r| r == String::from_iter(&chars[i-4..i+1]).as_str()).unwrap();
+            } else if i > 3 && DIGITS.contains(&String::from_iter(&chars[i-4..i+1]).as_str()) {
+                f2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[i-4..i+1]).as_str()).unwrap();
                 break;
             }
         }
@@ -59,14 +59,14 @@ pub fn solve() -> SolutionPair {
                 break;
             }
 
-            if j > 1 && digits.contains(&String::from_iter(&chars[j-2..j+1]).as_str()){
-                l2 = digits.iter().position(|&r| r == String::from_iter(&chars[j-2..j+1]).as_str()).unwrap();
+            if j > 1 && DIGITS.contains(&String::from_iter(&chars[j-2..j+1]).as_str()){
+                l2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[j-2..j+1]).as_str()).unwrap();
                 break;
-            } else if j > 2 && digits.contains(&String::from_iter(&chars[j-3..j+1]).as_str()) {
-                l2 = digits.iter().position(|&r| r == String::from_iter(&chars[j-3..j+1]).as_str()).unwrap();
+            } else if j > 2 && DIGITS.contains(&String::from_iter(&chars[j-3..j+1]).as_str()) {
+                l2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[j-3..j+1]).as_str()).unwrap();
                 break;
-            } else if j > 3 && digits.contains(&String::from_iter(&chars[j-4..j+1]).as_str()) {
-                l2 = digits.iter().position(|&r| r == String::from_iter(&chars[j-4..j+1]).as_str()).unwrap();
+            } else if j > 3 && DIGITS.contains(&String::from_iter(&chars[j-4..j+1]).as_str()) {
+                l2 = DIGITS.iter().position(|&r| r == String::from_iter(&chars[j-4..j+1]).as_str()).unwrap();
                 break;
             }
         }
