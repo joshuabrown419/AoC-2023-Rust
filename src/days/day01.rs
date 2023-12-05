@@ -41,14 +41,14 @@ pub fn solve() -> SolutionPair {
                 break;
             }
 
-            if i > 1 && DIGITS.contains(&String::from_iter(&chars[i-2..i+1]).as_str()){
-                f2 = slice_to_usize(&chars[i-2..i+1]);
+            if i > 1 && slice_to_usize3(&chars[i-2..i+1]) != 0 {
+                f2 = slice_to_usize3(&chars[i-2..i+1]);
                 break;
-            } else if i > 2 && DIGITS.contains(&String::from_iter(&chars[i-3..i+1]).as_str()) {
-                f2 = slice_to_usize(&chars[i-3..i+1]);
+            } else if i > 2 && slice_to_usize4(&chars[i-3..i+1]) != 0 {
+                f2 = slice_to_usize4(&chars[i-3..i+1]);
                 break;
-            } else if i > 3 && DIGITS.contains(&String::from_iter(&chars[i-4..i+1]).as_str()) {
-                f2 = slice_to_usize(&chars[i-4..i+1]);
+            } else if i > 3 && slice_to_usize5(&chars[i-4..i+1]) != 0 {
+                f2 = slice_to_usize5(&chars[i-4..i+1]);
                 break;
             }
         }
@@ -60,13 +60,13 @@ pub fn solve() -> SolutionPair {
             }
 
             if j > 1 && DIGITS.contains(&String::from_iter(&chars[j-2..j+1]).as_str()){
-                l2 = slice_to_usize(&chars[j-2..j+1]);
+                l2 = slice_to_usize3(&chars[j-2..j+1]);
                 break;
             } else if j > 2 && DIGITS.contains(&String::from_iter(&chars[j-3..j+1]).as_str()) {
-                l2 = slice_to_usize(&chars[j-3..j+1]);
+                l2 = slice_to_usize4(&chars[j-3..j+1]);
                 break;
             } else if j > 3 && DIGITS.contains(&String::from_iter(&chars[j-4..j+1]).as_str()) {
-                l2 = slice_to_usize(&chars[j-4..j+1]);
+                l2 = slice_to_usize5(&chars[j-4..j+1]);
                 break;
             }
         }
@@ -76,25 +76,37 @@ pub fn solve() -> SolutionPair {
     (Solution::from(sol1), Solution::from(sol2))
 }
 
-pub fn slice_to_usize(input: &[char]) -> usize {
+pub fn slice_to_usize3(input: &[char]) -> usize {
     if input == ['o', 'n', 'e'] {
         return 1;
     } else if input == ['t', 'w', 'o'] {
         return 2;
-    } else if input == ['t', 'h', 'r', 'e', 'e'] {
-        return 3;
-    } else if input == ['f', 'o', 'u', 'r'] {
+    } else if input == ['s', 'i', 'x'] {
+        return 6;
+    }
+
+    return 0;
+}
+
+pub fn slice_to_usize4(input: &[char]) -> usize {
+    if input == ['f', 'o', 'u', 'r'] {
         return 4;
     } else if input == ['f', 'i', 'v', 'e'] {
         return 5;
-    } else if input == ['s', 'i', 'x'] {
-        return 6;
+    } else if input == ['n', 'i', 'n', 'e'] {
+        return 9;
+    }
+    return 0;
+}
+
+pub fn slice_to_usize5(input: &[char]) -> usize {
+    if input == ['t', 'h', 'r', 'e', 'e'] {
+        return 3;
     } else if input == ['s', 'e', 'v', 'e', 'n'] {
         return 7;
     } else if input == ['e', 'i', 'g', 'h', 't'] {
         return 8;
-    } else if input == ['n', 'i', 'n', 'e'] {
-        return 9;
     }
+
     return 0;
 }
