@@ -54,7 +54,6 @@ pub fn solve() -> SolutionPair {
         }
 
         for j in (0..line.len()).rev() {
-            println!("{}", j);
             if chars[j].is_ascii_digit() {
                 l2 = chars[j];
                 break;
